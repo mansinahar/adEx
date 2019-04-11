@@ -286,9 +286,9 @@ go build
 ./adEx -port=$ADEX_PORT
 ```
 
-* Now that you have the adEx service running you can simply use CURL to hit any of the service endpoints
+* Now that you have the adEx service running you can simply use CURL to hit any of the service endpoints. There are two endpoints that are already defined. A `/health` endpoint that's basically a healthcheck endpoint and a `/bidders` endpoint that returns the list of supported bidders by the adEx service.
 
-For example:
+For example, you can run the following to hit the healthcheck endpoint:
 ```bash
 curl http://localhost:$ADEX_PORT/health
 ```
