@@ -2,11 +2,13 @@
 
 An Ad exchange is a platform where publishers and advertisers sell and buy ads. Think of the Publisher as a website owner who wants to make some revenue by displaying ads on their website. For example, New York Times, StackOverflow, etc and think of the Advertiser as the one who wants to buy these ad spaces and display their ads. For example, Nike, Apple, etc. So in summary, Publishers are the sellers of ad spaces (also known as ad placements) and advertisers are the buyers. There can usually be multiple other parties involved in these transactions but in order to keep this simple, let's assume we just have publishers and advertisers and they talk directly to our ad exchange service.
 
-You need to design and implement a REST API endpoint that a publisher can call to sell his ad placements. For simplicity, we will assume that the Publisher can only display *image* ads.
+You need to design and implement a REST API endpoint that a publisher can call to sell his ad placements. This endpoint will conduct an auction between all the supported buyers by the ad exchange. For simplicity, we will assume that the Publisher can only display *image* ads.
 
 - The request will contain one or more ad placements that the publisher wants to sell. An ad placement consists of an ad placement ID and the different image sizes supported by the particular ad placement.
 - The ad exchange can then contact different buyers and ask them to bid on the ad placements. For simplicity, in this case we will assume that there exists 3 buyers (Nike, Apple and Amazon) that the ad exchange supports. Ideally we'd make a call to these buyers to get the bids but for this example, assume you can simply mock this functionality such that buyers will always send a rndomly generated bid response.
+
 **Note:** The BidResponse object definition can be found in bid_response.go
+
 - The ad exchange then needs to select the winning bid for each ad placement and return that to the Publisher.
 - Remember that an ad placement will only be able to display an ad properly if it is in one of the sizes that is supported by that ad placement.
 
@@ -268,6 +270,7 @@ You need to design and implement a REST API endpoint that a publisher can call t
 * Since you will be writing GoLang as part of this role, we've provided a GoLang boilerplate that you can use as a starting point to implement this adEx service.
 * We understand that GoLang might not be everyone's preferred language and which is why you're welcome to use any other language of your choice too. Although, in that case you'd have to start from scratch.
 * Remember that we're looking for how you think and go about designing a service and language isn't a barrier :)
+* Once you've implemented the service, make sure to add a `Readme.md` describing any necessary information that we will need to review it. For example, the endpoint that you designed for conducting an auction for a publisher's ad placements.
 
 ### The GoLang boilerplate
 
