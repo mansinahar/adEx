@@ -76,6 +76,11 @@ func getBidders(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		log.Error(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
+	} else {
+		err = fmt.Errorf("Error marshaling bidder response: %s", err.Error())
+                log.Error(err)
+                http.Error(w, err.Error(), http.StatusInternalServerError)
+                return
 	}
 	w.Write(biddersJSON)
 }
