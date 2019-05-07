@@ -65,7 +65,7 @@ func setupRouter() *httprouter.Router {
 
 // health is an http handler for the /health - health check endpoint
 func health(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	w.Write([]byte("Hello World!"))
+	w.Write([]byte("Hello World!!!"))
 }
 
 // getBidders is an http handler for the /bidders endpoint
@@ -76,6 +76,11 @@ func getBidders(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		log.Error(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
+	} else {
+		err = fmt.Errorf("Error marshaling bidder response: %s", err.Error())
+                log.Error(err)
+                http.Error(w, err.Error(), http.StatusInternalServerError)
+                return
 	}
 	w.Write(biddersJSON)
 }
