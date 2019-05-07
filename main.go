@@ -65,7 +65,7 @@ func setupRouter() *httprouter.Router {
 
 // health is an http handler for the /health - health check endpoint
 func health(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	w.Write([]byte("Hello World!"))
+	w.Write([]byte("Hello World!!!"))
 }
 
 // getBidders is an http handler for the /bidders endpoint
