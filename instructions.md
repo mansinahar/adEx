@@ -83,7 +83,7 @@ You need to design and implement a REST API endpoint that a publisher can call t
 				},
 				{
 					"size": {
-						"width": 350,
+						"width": 250,
 						"height": 400
 					},
 					"url": "http://www.nike.com/img/size?w=350&h=400"
